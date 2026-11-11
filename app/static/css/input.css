@@ -19,7 +19,6 @@
 @theme {
     --color-brand-blue: #2b5f9e;
     --color-brand-dark: #060b14; 
-    
     --font-sans: 'RobotoMono', sans-serif;      
     --font-display: 'Outfit', sans-serif;       
     --font-accent: 'Orbitron', sans-serif;      
@@ -43,24 +42,20 @@
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden; 
     }
-
     h1, h2 { font-family: var(--font-accent); line-height: 1.2; font-weight: 700; }
     h3 { font-family: var(--font-display); line-height: 1.2; font-weight: 600; }
 }
 
-
 /* =========================================
-   COMPONENTES PERSONALIZADOS
+   4. COMPONENTES PERSONALIZADOS
    ========================================= */
 @layer components {
-    /* O botão brilho clássico (infalível) */
+    /* Botão Brilho */
     .btn-shine {
         position: relative;
         overflow: hidden;
-        isolation: isolate; /* Previne bugs de z-index no mobile */
+        isolation: isolate; 
     }
-
-    /* O feixe de luz */
     .btn-shine::before {
         content: '';
         position: absolute;
@@ -68,21 +63,14 @@
         left: -100%;
         width: 50%;
         height: 100%;
-        background: linear-gradient(
-            to right,
-            transparent,
-            rgba(255, 255, 255, 0.4),
-            transparent
-        );
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
         transform: skewX(-25deg);
-        /* O SEGREDO: 3 segundos de animação, com 20% de brilho e 80% de pausa */
         animation: shine-sweep 3s infinite;
-        z-index: -1; /* Fica atrás do texto */
+        z-index: -1; 
     }
-}
-
-@keyframes shine-sweep {
-    0% { left: -100%; }
-    25% { left: 200%; }
-    100% { left: 200%; } /* Fica parado no resto do tempo */
+    @keyframes shine-sweep {
+        0% { left: -100%; }
+        25% { left: 200%; }
+        100% { left: 200%; } 
+    }
 }
