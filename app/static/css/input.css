@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* Apontando para os arquivos HTML */
+@source "../../templates/**/*.html";
+@source "../js/**/*.js";
+
+/* =========================================
+   1. CARREGAMENTO DAS FONTES LOCAIS
+   ========================================= */
+@font-face {
+    font-family: 'Outfit';
+    src: url('../fonts/Outfit-Regular.woff2') format('woff2'),
+         url('../fonts/Outfit-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('../fonts/Outfit-Bold.woff2') format('woff2'),
+         url('../fonts/Outfit-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+         url('../fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron-Regular.woff2') format('woff2'),
+         url('../fonts/Orbitron-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================================
+   2. CONFIGURAÇÃO DO TEMA TAILWIND V4
+   ========================================= */
+@theme {
+    /* Cores do projeto */
+    --color-brand-blue: #0a4b9c;
+    --color-brand-light: #eef4fc;
+
+    /* Tipografia */
+    --font-sans: 'Roboto', sans-serif;      /* Padrão do corpo (Body) */
+    --font-display: 'Outfit', sans-serif;   /* Títulos e Botões */
+    --font-accent: 'Orbitron', sans-serif;  /* Logo e detalhes Tech */
+
+    /* --- ANIMAÇÃO DO GLOBO --- */
+    /* Define uma rotação de 360 graus em 10 segundos (linear e infinita) */
+    --animate-spin-slow: spin-slow 10s linear infinite;
+
+    @keyframes spin-slow {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+/* =========================================
+   EFEITO DE BRILHO NOS BOTÕES (SHINE)
+   ========================================= */
+@utility btn-shine {
+    position: relative;
+    overflow: hidden; /* Garante que o brilho não saia do botão */
+    
+    /* Cria o feixe de luz */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 0.4), /* Cor e opacidade do brilho */
+            transparent
+        );
+        transform: skewX(-25deg); /* Deixa o feixe inclinado */
+        
+        /* Aplica a animação: 5s de duração, repetição infinita */
+        animation: shine-sweep 5s infinite;
+    }
+}
+
+/* Define os quadros da animação */
+@keyframes shine-sweep {
+    0% {
+        left: -100%;
+    }
+    20% {
+        left: 200%; /* O brilho passa rápido (em 20% do tempo) */
+    }
+    100% {
+        left: 200%; /* E fica escondido no resto do tempo */
+    }
+}
