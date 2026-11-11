@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 heroImage.src = images[currentIndex];
                 heroImage.style.opacity = '1';
             }, 500); 
-        }, 4000); 
+        }, 9000); 
     }
 
     // =========================================
