@@ -354,6 +354,9 @@
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
   }
+  .mt-auto {
+    margin-top: auto;
+  }
   .mb-1 {
     margin-bottom: var(--spacing);
   }
@@ -420,6 +423,9 @@
   .h-1\/2 {
     height: calc(1 / 2 * 100%);
   }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -429,6 +435,9 @@
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
+  .h-7 {
+    height: calc(var(--spacing) * 7);
+  }
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
@@ -437,6 +446,9 @@
   }
   .h-12 {
     height: calc(var(--spacing) * 12);
+  }
+  .h-14 {
+    height: calc(var(--spacing) * 14);
   }
   .h-16 {
     height: calc(var(--spacing) * 16);
@@ -477,6 +489,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
+  }
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
@@ -486,6 +501,9 @@
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
+  .w-7 {
+    width: calc(var(--spacing) * 7);
+  }
   .w-8 {
     width: calc(var(--spacing) * 8);
   }
@@ -494,6 +512,9 @@
   }
   .w-12 {
     width: calc(var(--spacing) * 12);
+  }
+  .w-14 {
+    width: calc(var(--spacing) * 14);
   }
   .w-16 {
     width: calc(var(--spacing) * 16);
@@ -1385,6 +1406,10 @@
     }
   }
   @media (hover: hover) {
+    :is(:where(.group):hover .group-hover\:translate-x-1) {
+      --tw-translate-x: var(--spacing);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
     :is(:where(.group):hover .group-hover\:scale-110) {
       --tw-scale-x: 110%;
       --tw-scale-y: 110%;
@@ -1393,6 +1418,9 @@
     }
     :is(:where(.group):hover .group-hover\:bg-brand-blue) {
       background-color: var(--color-brand-blue);
+    }
+    :is(:where(.group):hover .group-hover\:text-blue-800) {
+      color: var(--color-blue-800);
     }
     :is(:where(.group):hover .group-hover\:text-brand-blue) {
       color: var(--color-brand-blue);
@@ -1651,6 +1679,12 @@
     }
     .lg\:grid-cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .lg\:grid-cols-5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    .lg\:gap-6 {
+      gap: calc(var(--spacing) * 6);
     }
     .lg\:gap-20 {
       gap: calc(var(--spacing) * 20);
