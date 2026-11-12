@@ -37,7 +37,7 @@ from datetime import datetime
 from xml.sax.saxutils import escape as xml_escape
 
 import resend
-from flask import Blueprint, Flask, render_template, render_template_string, request, session
+from flask import Blueprint, Flask, make_response, render_template, render_template_string, request, session
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
@@ -317,42 +317,187 @@ def enviar_emails(dados, calc, pdf_bytes, referencia):
     resend.api_key = os.environ["RESEND_API_KEY"]
     remetente = os.environ["MAIL_FROM"]
     dono = os.environ["OWNER_EMAIL"]
+    
     e = {k: html.escape(v or "—") for k, v in dados.items()}
+    
+    # --- PALETA DE CORES PREMIUM ---
+    AZUL_MARCA = "#2b5f9e"
+    AZUL_ESCURO = "#1e3a5f"
+    AZUL_CLARO = "#e0f2fe"
+    FUNDO_EXTERNO = "#f1f5f9"  # Cinza muito claro (fundo da página)
+    TEXTO_ESCURO = "#0f172a"
+    TEXTO_CINZA = "#475569"
 
-    # 1) Para ti: dados do cliente + PDF
-    corpo_dono = f"""
-    <h2>Novo pedido de orçamento — {referencia}</h2>
-    <p><strong>Nome:</strong> {e['nome']}<br>
-       <strong>Email:</strong> {e['email']}<br>
-       <strong>Telefone:</strong> {e['telefone']}<br>
-       <strong>Empresa:</strong> {e['empresa']}<br>
-       <strong>Website atual:</strong> {e['site_atual']}<br>
-       <strong>Prazo:</strong> {e['prazo']}<br>
-       <strong>Orçamento do cliente:</strong> {e['orcamento_cliente']}</p>
-    <h3>Serviços e estimativa</h3>{_linhas_html(calc)}
-    <h3>Descrição do projeto</h3><p>{e['descricao'].replace(chr(10), '<br>')}</p>
-    <p style="color:#666">Compromisso: responder em {PRAZO_RESPOSTA}. Podes responder diretamente a este email.</p>
+    # Helper para gerar a lista de serviços (Design de Recibo 3D)
+    def gerar_html_servicos(calc):
+        if not calc["linhas"]:
+            return "<p style='margin:0; color:#666;'><em>Nenhum serviço selecionado.</em></p>"
+        
+        linhas_html = ""
+        for i, l in enumerate(calc["linhas"]):
+            # Alterna a cor de fundo para dar um efeito "zebra" subtil
+            bg_color = "#ffffff" if i % 2 == 0 else "#f8fafc"
+            linhas_html += f"""
+            <tr style="background-color: {bg_color};">
+                <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; color: {TEXTO_ESCURO}; font-size: 14px;">
+                    <strong style="color: {AZUL_MARCA};">{html.escape(l['id'])}</strong> {html.escape(l['nome'])}
+                </td>
+                <td style="padding: 12px 16px; border-bottom: 1px solid #e2e8f0; text-align: right; color: {TEXTO_ESCURO}; font-size: 14px; font-weight: bold;">
+                    {html.escape(texto_preco(l))}
+                </td>
+            </tr>
+            """
+        
+        return f"""
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0;">
+            {linhas_html}
+            <tr style="background-color: {AZUL_CLARO};">
+                <td style="padding: 16px; text-align: right; font-weight: bold; color: {AZUL_ESCURO}; font-size: 15px;">Estimativa Total:</td>
+                <td style="padding: 16px; text-align: right; font-weight: bold; color: {AZUL_MARCA}; font-size: 18px;">{html.escape(texto_total(calc))}</td>
+            </tr>
+        </table>
+        """
+
+    # --- ESTRUTURA BASE (O "Vidro Fosco" e "3D") ---
+    def gerar_layout(titulo_cabecalho, subtitulo_cabecalho, corpo_html):
+        return f"""
+        <!DOCTYPE html>
+        <html>
+        <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+        <body style="margin: 0; padding: 0; background-color: {FUNDO_EXTERNO}; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: {FUNDO_EXTERNO}; padding: 40px 20px;">
+                <tr>
+                    <td align="center">
+                        
+                        <!-- WRAPPER PRINCIPAL (Sombra 3D Profunda) -->
+                        <table width="100%" max-width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; background-color: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.1);">
+                            
+                            <!-- CABEÇALHO COM GRADIENTE E BORDA DE LUZ (Vidro) -->
+                            <tr>
+                                <td style="background: linear-gradient(135deg, {AZUL_MARCA} 0%, {AZUL_ESCURO} 100%); padding: 50px 30px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                    <!-- Borda superior luminosa para simular vidro -->
+                                    <div style="height: 2px; background: rgba(255,255,255,0.2); width: 80%; margin: 0 auto 20px auto; border-radius: 2px;"></div>
+                                    
+                                    <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 700; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                                        {titulo_cabecalho}
+                                    </h1>
+                                    <p style="margin: 12px 0 0 0; color: rgba(255,255,255,0.8); font-size: 15px; letter-spacing: 1px; text-transform: uppercase;">
+                                        {subtitulo_cabecalho}
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <!-- CORPO DO E-MAIL -->
+                            <tr>
+                                <td style="padding: 40px 30px;">
+                                    {corpo_html}
+                                </td>
+                            </tr>
+
+                            <!-- RODAPÉ 3D -->
+                            <tr>
+                                <td style="background-color: #f8fafc; padding: 24px; text-align: center; border-top: 1px solid #e2e8f0; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                                    <p style="margin: 0; font-size: 12px; color: #94a3b8; font-weight: 500;">
+                                        Enviado via <span style="color: {AZUL_MARCA}; font-weight: bold;">mrldtechnology.online</span>
+                                    </p>
+                                    <p style="margin: 8px 0 0 0; font-size: 12px; color: #cbd5e1;">
+                                        {datetime.now().strftime('%d/%m/%Y às %H:%M')} · Resposta em {PRAZO_RESPOSTA}
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </td>
+                </tr>
+            </table>
+        </body>
+        </html>
+        """
+
+    # --- 1) CONTEÚDO PARA TI (O DONO) ---
+    servicos_dono = gerar_html_servicos(calc)
+    
+    corpo_dono_html = f"""
+        <h2 style="color: {TEXTO_ESCURO}; font-size: 18px; margin: 0 0 16px 0; font-weight: 700;">Dados do Cliente</h2>
+        
+        <!-- CAIXA DE DADOS COM EFEITO RELEVO -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 24px;">
+            <tr><td style="padding: 20px;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px; color: {TEXTO_CINZA}; line-height: 1.8;">
+                    <tr><td width="100" style="font-weight: 600; color: {TEXTO_ESCURO};">Nome:</td><td>{e['nome']}</td></tr>
+                    <tr><td style="font-weight: 600; color: {TEXTO_ESCURO};">Email:</td><td><a href="mailto:{e['email']}" style="color: {AZUL_MARCA}; text-decoration: none; font-weight: 500;">{e['email']}</a></td></tr>
+                    <tr><td style="font-weight: 600; color: {TEXTO_ESCURO};">Telefone:</td><td>{e['telefone']}</td></tr>
+                    <tr><td style="font-weight: 600; color: {TEXTO_ESCURO};">Empresa:</td><td>{e['empresa']}</td></tr>
+                    <tr><td style="font-weight: 600; color: {TEXTO_ESCURO};">Website:</td><td>{e['site_atual']}</td></tr>
+                </table>
+            </td></tr>
+        </table>
+
+        <h2 style="color: {TEXTO_ESCURO}; font-size: 18px; margin: 24px 0 16px 0; font-weight: 700;">Sobre o Projeto</h2>
+        <div style="background-color: #eff6ff; border-left: 4px solid {AZUL_MARCA}; padding: 16px; border-radius: 0 8px 8px 0; margin-bottom: 24px;">
+            <p style="margin: 0 0 8px 0; font-size: 14px; color: {TEXTO_ESCURO};"><strong>Prazo:</strong> {e['prazo']}</p>
+            <p style="margin: 0 0 16px 0; font-size: 14px; color: {TEXTO_ESCURO};"><strong>Orçamento do cliente:</strong> {e['orcamento_cliente']}</p>
+            <p style="margin: 0; font-size: 14px; color: {TEXTO_CINZA}; line-height: 1.6;">{e['descricao'].replace(chr(10), '<br>')}</p>
+        </div>
+
+        <h2 style="color: {TEXTO_ESCURO}; font-size: 18px; margin: 24px 0 16px 0; font-weight: 700;">Serviços & Estimativa</h2>
+        {servicos_dono}
     """
+
+    corpo_dono = gerar_layout("Novo Pedido de Orçamento", f"Ref. {referencia}", corpo_dono_html)
+
+
+    # --- 2) CONTEÚDO PARA O CLIENTE ---
+    servicos_cliente = gerar_html_servicos(calc)
+
+    corpo_cliente_html = f"""
+        <p style="font-size: 16px; color: {TEXTO_ESCURO}; margin-top: 0; font-weight: 500;">Olá <strong>{e['nome']}</strong>,</p>
+        
+        <p style="font-size: 15px; color: {TEXTO_CINZA}; line-height: 1.7; margin-bottom: 24px;">
+            Recebemos o seu pedido de orçamento (ref. <strong>{referencia}</strong>). 
+            Vamos analisar o seu projeto e <strong>entraremos em contacto num prazo de {PRAZO_RESPOSTA}</strong> para apresentar uma proposta personalizada.
+        </p>
+
+        <h2 style="color: {TEXTO_ESCURO}; font-size: 18px; margin: 24px 0 16px 0; font-weight: 700;">O que indicou</h2>
+        {servicos_cliente}
+
+        <!-- BOTÃO 3D (Call to Action) -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 32px; text-align: center;">
+            <tr>
+                <td align="center">
+                    <a href="mailto:orcamentos@mrldtechnology.online" style="display: inline-block; background: linear-gradient(135deg, {AZUL_MARCA} 0%, {AZUL_ESCURO} 100%); color: #ffffff; text-decoration: none; padding: 16px 32px; border-radius: 50px; font-weight: bold; font-size: 15px; box-shadow: 0 10px 20px -5px rgba(43,95,158,0.4);">
+                        Falar com o Amiraldo
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+        <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 8px; margin-top: 32px;">
+            <p style="margin: 0; font-size: 13px; color: #64748b; text-align: center;">
+                <strong>Nota:</strong> Os valores são estimativas de referência. O âmbito final será ajustado na proposta oficial.
+            </p>
+        </div>
+
+        <p style="font-size: 15px; color: {TEXTO_CINZA}; margin-top: 30px; line-height: 1.6;">
+            Com os melhores cumprimentos,<br>
+            <strong style="color: {TEXTO_ESCURO}; font-size: 16px;">Amiraldo Rodrigues</strong><br>
+            <span style="color: {AZUL_MARCA}; font-weight: 500;">Desenvolvimento Web & Soluções Digitais</span>
+        </p>
+    """
+
+    corpo_cliente = gerar_layout("Pedido Recebido!", "Obrigado pelo seu contacto.", corpo_cliente_html)
+
+
+    # --- ENVIO ---
     resend.Emails.send({
         "from": remetente,
         "to": [dono],
         "reply_to": dados["email"],
-        "subject": f"Novo pedido de orçamento — {dados['nome']} ({referencia})",
+        "subject": f"Novo pedido — {dados['nome']} ({referencia})",
         "html": corpo_dono,
         "attachments": [{"filename": f"orcamento-{referencia}.pdf", "content": list(pdf_bytes)}],
     })
 
-    # 2) Para o cliente: aviso de receção (falha aqui não deve anular o pedido)
-    corpo_cliente = f"""
-    <p>Olá {e['nome']},</p>
-    <p>Recebemos o seu pedido de orçamento (ref. <strong>{referencia}</strong>). Obrigado pelo contacto!</p>
-    <p>Vamos analisar o seu projeto e <strong>entraremos em contacto num prazo de {PRAZO_RESPOSTA}</strong>
-       para confirmar o âmbito e apresentar uma proposta ajustada às suas necessidades.</p>
-    <h3>Resumo do que indicou</h3>{_linhas_html(calc)}
-    <p style="color:#666;font-size:13px">Os valores são estimativas de referência, não vinculativas, e podem ser
-       ajustados na proposta final.</p>
-    <p>Cumprimentos,<br>Amiraldo Rodrigues<br>Desenvolvimento Web &amp; Soluções Digitais</p>
-    """
     try:
         resend.Emails.send({
             "from": remetente,
@@ -363,7 +508,6 @@ def enviar_emails(dados, calc, pdf_bytes, referencia):
         })
     except Exception:
         log.exception("Falha ao enviar confirmação ao cliente %s", dados["email"])
-
 
 # ---------------------------------------------------------------------------
 # VALIDAÇÃO / SEGURANÇA
@@ -592,9 +736,16 @@ def orcamento():
 
     _historico_ips.setdefault(ip, []).append(time.time())
     session.pop("csrf", None)
-    return render_template_string(
-        TEMPLATE_OBRIGADO, nome=dados["nome"], email=dados["email"], ref=referencia, prazo=PRAZO_RESPOSTA
-    )
+    response = make_response(render_template('obrigado.html', 
+                                             nome=dados["nome"], 
+                                             email=dados["email"], 
+                                             ref=referencia, 
+                                             prazo=PRAZO_RESPOSTA))
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
+    # return render_template('obrigado.html', nome=dados["nome"], email=dados["email"], ref=referencia, prazo=PRAZO_RESPOSTA)
 
 
 # ---------------------------------------------------------------------------

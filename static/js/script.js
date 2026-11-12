@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // =========================================
+// =========================================
 // 1. LÓGICA DO MENU MOBILE E BOTÃO ARRASTÁVEL (FAB)
 // =========================================
 const fab = document.getElementById('floating-menu');
@@ -173,5 +173,26 @@ if (fab && overlay && window.getComputedStyle(fab).display !== 'none') {
                 header.style.transform = 'translateY(0)';
             }
         }, { passive: true });
+    }
+});
+
+
+// =========================================
+// LIMPEZA DO FORMULÁRIO AO SAIR DA PÁGINA
+// =========================================
+document.addEventListener("DOMContentLoaded", () => {
+    const formOrcamento = document.getElementById('form-orcamento');
+    
+    if (formOrcamento) {
+        // Função que limpa todos os campos do formulário
+        const limparFormulario = () => {
+            formOrcamento.reset(); // Limpa inputs de texto e selects
+            // Limpa os checkboxes e radios explicitamente (por segurança)
+            const checkboxes = formOrcamento.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+            checkboxes.forEach(cb => cb.checked = false);
+        };
+
+        // Deteta quando o utilizador sai da página (muda de URL, clica num link, fecha a aba)
+        window.addEventListener('beforeunload', limparFormulario);
     }
 });
