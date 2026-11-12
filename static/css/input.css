@@ -44,6 +44,14 @@
     }
     h1, h2 { font-family: var(--font-accent); line-height: 1.2; font-weight: 700; }
     h3 { font-family: var(--font-display); line-height: 1.2; font-weight: 600; }
+
+    html{
+        scroll-behavior: smooth;
+    }
+
+    section[id] {
+        scroll-margin-top: 100px; 
+    }
 }
 
 /* =========================================
@@ -73,4 +81,9 @@
         25% { left: 200%; }
         100% { left: 200%; } 
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
