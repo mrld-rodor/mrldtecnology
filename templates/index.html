@@ -98,7 +98,7 @@
 <!-- ========================================= -->
 <!-- SECÇÃO DE SERVIÇOS -->
 <!-- ========================================= -->
-<section id="servicos" class="scroll-mt-20 py-22 bg-gray-200 relative overflow-hidden">
+<section id="servicos" class="py-22 bg-gray-200 relative overflow-hidden">
     <!-- Efeito de fundo para dar profundidade (opcional) -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-brand-blue/5 blur-3xl rounded-full pointer-events-none"></div>
 
@@ -124,7 +124,7 @@
             </p>
         </div>
 
-                <!-- Grid de Serviços (1 col mobile, 2 tablet, 5 desktop) -->
+            <!-- Grid de Serviços (1 col mobile, 2 tablet, 5 desktop) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
             
             <!-- Card 1: Websites -->
@@ -169,9 +169,9 @@
                 <div class="relative w-14 h-14 bg-blue-50 text-brand-blue rounded-2xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-brand-blue group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(43,95,158,0.4)] transition-all duration-500 ease-out z-10">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors duration-300 z-10">Sistemas Web</h3>
+                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-blue transition-colors duration-300 z-10">Sistemas e Aplicações</h3>
                 <p class="text-xs text-gray-600 font-sans leading-relaxed z-10 mb-4 flex-grow">
-                    Agendamento, painéis administrativos e aplicações complexas desenhadas à sua medida.
+                    Agendamento, painéis administrativos e aplicações complexas desenhadas à sua medida, inslusive desenvolvimento Android.
                 </p>
                 <span class="mt-auto flex items-center gap-1 text-xs font-bold text-brand-blue group-hover:text-blue-800 transition-colors z-10">
                     Saiba mais
@@ -212,9 +212,122 @@
                     <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </span>
             </article>
+        </div>        
+    </div> 
+
+    <!-- Imagem Estática (Só aparece no Desktop) -->
+    <div class="hidden md:block mt-24 mb-8 relative max-w-5xl mx-auto group">
+        <div class="absolute -inset-4 bg-brand-blue/20 rounded-[3rem] blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-700"></div>
+        <img src="{{ url_for('static', filename='images/how_to_work3.png') }}" 
+            alt="Soluções Amiraldo Rodrigues" 
+            class="relative z-10 w-full h-auto rounded-3xl shadow-[0_20px_50px_-12px_rgba(43,95,158,0.3)] border border-white/60 object-cover">
+    </div>
+
+    <!-- ========================================= -->
+    <!-- CARROSSEL FINAL DA SECÇÃO DE SERVIÇOS -->
+    <!-- ========================================= -->
+    <div class="block md:hidden mt-24 mb-8 relative max-w-5xl mx-auto group" id="services-carousel-container">
+        <!-- Brilho azul esfumado por trás (Efeito 3D) -->
+        <div class="absolute -inset-4 bg-brand-blue/20 rounded-[3rem] blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-700"></div>
+        
+        <!-- O Carrossel -->
+        <div class="relative z-10 w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(43,95,158,0.3)] border border-white/60 bg-[#060b14]">
+            
+            <!-- Track de Imagens -->
+            <div id="carousel-track" class="flex snap-x snap-mandatory overflow-x-auto custom-scrollbar scroll-smooth h-[460px] md:h-[400px] lg:h-[500px]">
+                
+                <div class="snap-center shrink-0 w-full h-full">
+                    <img src="{{ url_for('static', filename='images/1_contacto_inicial.png') }}" alt="Imagem 1" class="w-full h-full object-cover">
+                </div>
+                <div class="snap-center shrink-0 w-full h-full">
+                    <img src="{{ url_for('static', filename='images/2_briefing_analise.png') }}" alt="Imagem 2" class="w-full h-full object-cover">
+                </div>
+                <div class="snap-center shrink-0 w-full h-full">
+                    <img src="{{ url_for('static', filename='images/3_proposta.png') }}" alt="Imagem 3" class="w-full h-full object-cover">
+                </div>
+                <div class="snap-center shrink-0 w-full h-full">
+                    <img src="{{ url_for('static', filename='images/4_adjudicacao.png') }}" alt="Imagem 4" class="w-full h-full object-cover">
+                </div>
+                <div class="snap-center shrink-0 w-full h-full">
+                    <img src="{{ url_for('static', filename='images/5_desenvolvimento.png') }}" alt="Imagem 5" class="w-full h-full object-cover">
+                </div>
+                <div class="snap-center shrink-0 w-full h-full">
+                    <img src="{{ url_for('static', filename='images/6_revisoes.png') }}" alt="Imagem 6" class="w-full h-full object-cover">
+                </div>
+                <div class="snap-center shrink-0 w-full h-full">
+                    <img src="{{ url_for('static', filename='images/7_testes_entrega.png') }}" alt="Imagem 7" class="w-full h-full object-cover">
+                </div>
+                <div class="snap-center shrink-0 w-full h-full">
+                    <img src="{{ url_for('static', filename='images/8_pos_entrega.png') }}" alt="Imagem 8" class="w-full h-full object-cover">
+                </div>
+
+            </div>
+
+            <!-- Botão Anterior -->
+            <button id="prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/30 backdrop-blur-md border border-white/50 rounded-full flex items-center justify-center text-white hover:bg-brand-blue hover:scale-110 transition-all duration-300 z-20 opacity-0 group-hover:opacity-100 cursor-pointer shadow-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+
+            <!-- Botão Próximo -->
+            <button id="next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/30 backdrop-blur-md border border-white/50 rounded-full flex items-center justify-center text-white hover:bg-brand-blue hover:scale-110 transition-all duration-300 z-20 opacity-0 group-hover:opacity-100 cursor-pointer shadow-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+
+            <!-- Indicadores (Dots) -->
+            <div id="carousel-dots" class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20 pointer-events-none"></div>
+            
         </div>
+    </div> 
+</section>
+
+<!-- 20px de Espaço entre secções -->
+<div class="h-[20px] w-full"></div>
+
+<!-- ========================================= -->
+<!-- SECÇÃO DE PORTFÓLIO (GLOBO 3D) -->
+<!-- ========================================= -->
+<section id="portfolio" class="flex-shrink-0 relative pt-20 pb-6 md:pb-20 bg-gray-100/80 backdrop-blur-2xl border-y border-white/60 shadow-[0_15px_30px_rgba(0,0,0,0.05)] overflow-hidden">
+    
+    <!-- Cabeçalho -->
+    <div class="text-center max-w-3xl mx-auto mb-0 md:mb-10 px-4 relative z-10">
+        <span class="font-display text-sm font-bold tracking-widest text-brand-blue uppercase mb-3 block">Portfólio</span>
+        <div class="w-24 md:w-122 h-[2px] bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto mb-6 shadow-[0_0_8px_rgba(43,95,158,0.6)]"></div>
+        <h2 class="font-accent text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+            Tecnologias & Projetos
+        </h2>
+        <p class="text-gray-600 text-lg font-sans">
+            Explore o globo. Clique num ponto para descobrir os projetos que desenvolvi e quais tecnologias utilizo para criá-los.
+        </p>
+    </div>
+
+    <!-- Contentor do Globo (ALTURA FORÇADA INLINE) -->
+    <div id="globe-wrapper" class="relative w-full flex justify-center items-center cursor-grab active:cursor-grabbing mt-0 md:mt-6" style="height: 500px; touch-action: none;">
+        <!-- Canvas do Three.js -->
+        <div id="globe-canvas" class="absolute inset-0 z-0 w-full h-full"></div>
+        
+        <!-- Contentor para os pontos em HTML -->
+        <div id="globe-points" class="absolute inset-0 z-10 w-full h-full pointer-events-none"></div>
     </div>
 </section>
+
+<!-- MODAL DE PROJETOS (Para quando clicas num ponto) -->
+<div id="project-modal" class="fixed inset-0 z-[99999] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="project-overlay" class="absolute inset-0 bg-[#060b14]/60 backdrop-blur-md cursor-pointer"></div>
+    
+    <div class="relative w-full max-w-2xl max-h-[85vh] bg-white/95 backdrop-blur-3xl border border-white/80 rounded-[2rem] shadow-2xl flex flex-col scale-95 transition-transform duration-300 overflow-hidden">
+        
+        <div class="p-6 border-b border-gray-200/50 flex justify-between items-center bg-white/50 shrink-0">
+            <h3 id="project-title" class="font-accent text-2xl font-bold text-gray-900">Título</h3>
+            <button id="close-project-modal" class="w-10 h-10 bg-gray-100 hover:bg-brand-blue hover:text-white rounded-full flex items-center justify-center text-gray-600 transition-all duration-300 cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <div id="project-body" class="p-6 overflow-y-auto custom-scrollbar text-gray-600 font-sans">
+            <!-- Conteúdo injetado via JS -->
+        </div>
+    </div>
+</div>
 
 <!-- ========================================== -->
 <!-- MODAL DE DETALHES DOS SERVIÇOS (Oculto por defeito) -->

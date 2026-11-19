@@ -86,6 +86,7 @@ CATALOGO = {
             "desc": "Presença abrangente, componentes personalizados e integrações."},
     "1.7": {"grupo": "pagina", "nome": "Website personalizado", "preco": 1900, "tipo": "desde",
             "desc": "Feito à medida quando não se enquadra nos pacotes standard."},
+            
     # --- Sistemas e aplicações web (escolher VÁRIOS) ---
     "2.1": {"grupo": "sistema", "nome": "Sistema de agendamento", "preco": 650, "tipo": "desde",
             "desc": "Marcações online com calendário, horários e gestão."},
@@ -93,6 +94,9 @@ CATALOGO = {
             "desc": "Área privada para gerir informação sem mexer em código."},
     "2.3": {"grupo": "sistema", "nome": "Aplicação web personalizada", "preco": 1500, "tipo": "desde",
             "desc": "Software no navegador para gerir processos e automatizar tarefas."},
+    "2.4": {"grupo": "sistema", "nome": "Aplicação Android Nativa", "preco": 1200, "tipo": "desde",
+            "desc": "App para Google Play Store: design, login, base de dados, notificações e publicação."},
+            
     # --- Serviços adicionais, SEO e marketing (escolher VÁRIOS) ---
     "3.1": {"grupo": "extra", "nome": "SEO inicial", "preco": 120, "tipo": "fixo",
             "desc": "Títulos, descrições, cabeçalhos, URLs e recomendações técnicas."},
@@ -108,13 +112,18 @@ CATALOGO = {
             "desc": "Publicidade paga na Google (investimento em anúncios pago pelo cliente)."},
     "3.7": {"grupo": "extra", "nome": "Meta Ads (Facebook e Instagram)", "preco": None, "tipo": "orcamento",
             "desc": "Publicidade paga em Facebook/Instagram (investimento pago pelo cliente)."},
+    "3.8": {"grupo": "extra", "nome": "Hora Adicional de Desenvolvimento", "preco": 35, "tipo": "fixo",
+            "desc": "Unidade de trabalho para pedidos fora do âmbito (valor por hora)."},
+            
     # --- Manutenção e suporte (escolher UM) ---
-    "4.1": {"grupo": "manutencao", "nome": "Plano Basic", "preco": 39, "tipo": "mensal",
+    "4.1": {"grupo": "manutencao", "nome": "Plano Basic (Website)", "preco": 39, "tipo": "mensal",
             "desc": "Acompanhamento essencial para websites com poucas alterações."},
-    "4.2": {"grupo": "manutencao", "nome": "Plano Professional", "preco": 69, "tipo": "mensal",
+    "4.2": {"grupo": "manutencao", "nome": "Plano Professional (Website)", "preco": 69, "tipo": "mensal",
             "desc": "Apoio regular e mais margem para alterações de conteúdo."},
-    "4.3": {"grupo": "manutencao", "nome": "Plano Premium", "preco": 119, "tipo": "mensal",
+    "4.3": {"grupo": "manutencao", "nome": "Plano Premium (Website)", "preco": 119, "tipo": "mensal",
             "desc": "Acompanhamento prioritário e maior volume de intervenções."},
+    "4.4": {"grupo": "manutencao", "nome": "Manutenção PC a Domicílio", "preco": 40, "tipo": "desde",
+            "desc": "Assistência presencial: formatação, instalação de programas, recuperação de acessos e otimização."},
 }
 
 PRAZOS = ["Sem urgência", "Até 2 meses", "Até 1 mês", "Urgente (2 semanas ou menos)"]
