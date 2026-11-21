@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Hero Section -->
+<!-- ========================================= -->
+<!--            SECÇÃO HERO                    -->
+<!-- ========================================= -->
 <section id="hero" class="relative w-full overflow-hidden bg-linear-to-b from-brand-light/50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
         <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
@@ -95,8 +97,9 @@
     </div>
 </section>
 
+
 <!-- ========================================= -->
-<!-- SECÇÃO DE SERVIÇOS -->
+<!--          SECÇÃO DE SERVIÇOS               -->
 <!-- ========================================= -->
 <section id="servicos" class="py-22 bg-gray-200 relative overflow-hidden">
     <!-- Efeito de fundo para dar profundidade (opcional) -->
@@ -275,16 +278,14 @@
     </div> 
 </section>
 
-<!-- 20px de Espaço entre secções -->
-<div class="h-[20px] w-full"></div>
 
 <!-- ========================================= -->
-<!-- SECÇÃO DE PORTFÓLIO (GLOBO 3D) -->
+<!--      SECÇÃO DE PORTFÓLIO (GLOBO 3D)       -->
 <!-- ========================================= -->
 <section id="portfolio" class="flex-shrink-0 relative pt-20 pb-6 md:pb-20 bg-gray-100/80 backdrop-blur-2xl border-y border-white/60 shadow-[0_15px_30px_rgba(0,0,0,0.05)] overflow-hidden">
     
     <!-- Cabeçalho -->
-    <div class="text-center max-w-3xl mx-auto mb-0 md:mb-10 px-4 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-10 md:mb-4 px-4 relative z-10">
         <span class="font-display text-sm font-bold tracking-widest text-brand-blue uppercase mb-3 block">Portfólio</span>
         <div class="w-24 md:w-122 h-[2px] bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto mb-6 shadow-[0_0_8px_rgba(43,95,158,0.6)]"></div>
         <h2 class="font-accent text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
@@ -296,7 +297,7 @@
     </div>
 
     <!-- Contentor do Globo (ALTURA FORÇADA INLINE) -->
-    <div id="globe-wrapper" class="relative w-full flex justify-center items-center cursor-grab active:cursor-grabbing mt-0 md:mt-6" style="height: 500px; touch-action: none;">
+    <div id="globe-wrapper" class="relative w-full h-[300px] md:h-[450px] flex justify-center items-center cursor-grab active:cursor-grabbing mt-0 md:mt-6" style="touch-action: none;">
         <!-- Canvas do Three.js -->
         <div id="globe-canvas" class="absolute inset-0 z-0 w-full h-full"></div>
         

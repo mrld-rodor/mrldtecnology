@@ -726,7 +726,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // NOVO: Lógica responsiva para afastar a câmara no telemóvel
         const isMobile = window.innerWidth < 768;
-        camera.position.z = isMobile ? 28 : 18; 
+        camera.position.z = isMobile ? 18 : 18; 
 
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(width, height);
