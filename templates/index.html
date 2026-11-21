@@ -108,12 +108,7 @@
         <div class="text-center max-w-3xl mx-auto mb-16">
             <!-- Tagline -->
             <span class="font-display text-sm font-bold tracking-widest text-brand-blue uppercase mb-2 block">Serviços</span>
-            
-            <!-- A LINHA MÁGICA -->
-            <!-- w-24 md:w-32: define a largura | h-[2px]: espessura |
-                 bg-gradient-to-r: gradiente da esquerda para a direita |
-                 from-transparent via-brand-blue to-transparent: efeito de desaparecer nas pontas |
-                 shadow-[...]: o brilho neon -->
+                        
             <div class="w-24 md:w-122 h-[2px] bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto mb-6 shadow-[0_0_8px_rgba(43,95,158,0.6)]"></div>
             
             <h2 class="font-accent text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
@@ -309,6 +304,100 @@
         <div id="globe-points" class="absolute inset-0 z-10 w-full h-full pointer-events-none"></div>
     </div>
 </section>
+
+
+<!-- ========================================= -->
+<!--                SECÇÃO SOBRE               -->
+<!-- ========================================= -->
+<section id="sobre" class="w-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] border-b border-gray-200/50 relative overflow-hidden">
+    
+    <!-- Efeito de brilho de fundo -->
+    <div class="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-brand-blue/5 blur-3xl rounded-full pointer-events-none"></div>
+
+    <!-- Contentor Principal com o espaçamento padrão das outras secções (py-20) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        
+        <!-- Cabeçalho Padronizado (Igual aos Serviços) -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <span class="font-display text-sm font-bold tracking-widest text-brand-blue uppercase mb-3 block">Sobre</span>
+            <div class="w-24 md:w-122 h-[2px] bg-gradient-to-r from-transparent via-brand-blue to-transparent mx-auto mb-6 shadow-[0_0_8px_rgba(43,95,158,0.6)]"></div>
+        </div>
+
+        <!-- Grelha alinhada ao TOPO (items-start) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-20 items-start">            
+            <!-- Coluna da Imagem -->
+            <div class="relative group order-1 md:order-1 md:pb-0">
+                <!-- Sombra/Glow por trás da imagem -->
+                <div class="absolute -inset-4 bg-brand-blue/20 rounded-[2rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
+                
+                <!-- Imagem -->
+                <div class="relative z-10 w-full aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden border-4 border-white shadow-xl bg-gray-100">
+                    <img src="{{ url_for('static', filename='images/foto_amiraldo.png') }}" 
+                            alt="Amiraldo Rodrigues" 
+                            class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700">
+                </div>
+
+                <!-- Badge Flutuante (Disponibilidade) -->
+                <div class="absolute -bottom-4 right-2 md:-right-6 z-20 bg-white px-5 py-3 rounded-2xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.2)] border border-gray-100 flex items-center gap-3">
+                    
+                    <!-- O Ponto Verde (100% à prova de falhas) -->
+                    <div style="position: relative; display: flex; align-items: center; justify-content: center; width: 12px; height: 12px; flex-shrink: 0;">
+                        <!-- O anel animado -->
+                        <span style="position: absolute; width: 100%; height: 100%; background-color: #4ade80; border-radius: 50%; opacity: 0.75; animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></span>
+                        <!-- O centro estático -->
+                        <span style="position: relative; width: 12px; height: 12px; background-color: #22c55e; border-radius: 50%;"></span>
+                    </div>
+
+                    <div class="whitespace-nowrap">
+                        <p class="text-xs font-bold text-gray-900 font-display leading-tight">Disponível</p>
+                        <p class="text-[10px] text-gray-500 font-sans leading-tight">Para novos projetos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna do Texto -->
+            <div class="order-2 md:order-2 mt-10 md:mt-0 pb-16 md:pb-0">
+                <!-- Título -->
+                <h2 class="font-accent text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-6 text-center md:text-left">
+                    Olá, sou o <span class="text-brand-blue">Amiraldo Rodrigues</span>.
+                </h2>
+                
+                <p class="text-gray-600 text-lg font-sans leading-relaxed mb-6 text-center md:text-left">
+                    Sou um desenvolvedor apaixonado por criar soluções digitais que resolvem problemas reais. Acredito que a tecnologia deve ser simples, acessível e eficiente para todos.
+                </p>
+                <p class="text-gray-600 text-lg font-sans leading-relaxed mb-8 text-center md:text-left">
+                    Desde websites institucionais a sistemas complexos e aplicações móveis, o meu foco está em entregar produtos de alta qualidade, com um design impecável e código robusto, ajudando pequenos negócios a crescerem no mundo digital.
+                </p>
+
+                <!-- Lista de Skills (Badges) -->
+                <div class="mb-10 text-center md:text-left">
+                    <h3 class="text-sm font-bold text-gray-900 font-display mb-4 uppercase tracking-wide">As minhas ferramentas favoritas:</h3>
+                    <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                        <span class="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-700 hover:border-brand-blue hover:text-brand-blue transition-colors cursor-default">Python</span>
+                        <span class="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-700 hover:border-brand-blue hover:text-brand-blue transition-colors cursor-default">Flask</span>
+                        <span class="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-700 hover:border-brand-blue hover:text-brand-blue transition-colors cursor-default">Tailwind CSS</span>
+                        <span class="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-700 hover:border-brand-blue hover:text-brand-blue transition-colors cursor-default">PostgreSQL</span>
+                        <span class="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-700 hover:border-brand-blue hover:text-brand-blue transition-colors cursor-default">Kivy/KivyMD</span>
+                        <span class="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm font-bold text-gray-700 hover:border-brand-blue hover:text-brand-blue transition-colors cursor-default">MariaDB/MySQL</span>
+
+                    </div>
+                </div>
+
+                <!-- Botão de Ação -->
+                <div class="text-center md:text-left">
+                    <a href="/orcamento" class="btn-shine inline-flex items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-800 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-blue-900/20 font-display">
+                        Vamos trabalhar juntos
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================= -->
+<!--                  MODAIS                   -->
+<!-- ========================================= -->
 
 <!-- MODAL DE PROJETOS (Para quando clicas num ponto) -->
 <div id="project-modal" class="fixed inset-0 z-[99999] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
