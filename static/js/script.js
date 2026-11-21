@@ -387,11 +387,12 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Sistemas e Aplicações Web",
             icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>`,
             content: `
-                <div class="sticky top-0 z-30 bg-white -mx-6 md:-mx-8 px-6 md:px-8 pt-6 md:pt-8 pb-3 flex flex-nowrap overflow-x-auto w-full md:flex-wrap gap-2 border-b border-gray-200 custom-scrollbar">
-                    <button class="tab-btn active flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-brand-blue bg-blue-50 rounded-t-xl border-b-2 border-brand-blue transition-all" data-target="tab-sw-agendamento">Agendamento</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-sw-painel">Painel Admin</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-sw-app">App Web</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-sw-android">App Android</button>
+                <!-- NAVEGAÇÃO DAS ABAS (Padronizada) -->
+                <div class="flex flex-wrap border-b border-gray-200/50 mb-6 gap-2">
+                    <button class="tab-btn active px-4 py-2.5 text-sm font-bold text-brand-blue bg-blue-50 rounded-t-xl border-b-2 border-brand-blue transition-all" data-target="tab-sw-agendamento">Agendamento</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-sw-painel">Painel Admin</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-sw-app">App Web</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-sw-android">App Android</button>
                 </div>
                 <div id="tab-sw-agendamento" class="tab-content block animate-[fadeIn_0.3s_ease-in-out]">
                     <h4 class="text-xl font-bold text-gray-900 mb-1">Sistema de Agendamento</h4>
@@ -443,16 +444,18 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Anúncios & SEO",
             icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>`,
             content: `
-                <div class="sticky top-0 z-30 bg-white -mx-6 md:-mx-8 px-6 md:px-8 pt-6 md:pt-8 pb-3 flex flex-nowrap overflow-x-auto w-full md:flex-wrap gap-2 border-b border-gray-200 custom-scrollbar">
-                    <button class="tab-btn active flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-brand-blue bg-blue-50 rounded-t-xl border-b-2 border-brand-blue transition-all" data-target="tab-seo-inicial">SEO Inicial</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-velocidade">Velocidade</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-analytics">Analytics</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-search">Search Console</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-negocio">Google Negócio</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-gads">Google Ads</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-meta">Meta Ads</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-hora">Hora Extra</button>
+                <!-- NAVEGAÇÃO DAS ABAS (Padronizada) -->
+                <div class="flex flex-wrap border-b border-gray-200/50 mb-6 gap-2">
+                    <button class="tab-btn active px-4 py-2.5 text-sm font-bold text-brand-blue bg-blue-50 rounded-t-xl border-b-2 border-brand-blue transition-all" data-target="tab-seo-inicial">SEO Inicial</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-velocidade">Velocidade</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-analytics">Analytics</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-search">Search Console</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-negocio">Google Negócio</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-gads">Google Ads</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-meta">Meta Ads</button>
+                    <button class="tab-btn px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-seo-hora">Hora Extra</button>
                 </div>
+                
                 <div id="tab-seo-inicial" class="tab-content block animate-[fadeIn_0.3s_ease-in-out]">
                     <h4 class="text-xl font-bold text-gray-900 mb-1">SEO Inicial</h4>
                     <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: 120 €</p>
@@ -547,46 +550,13 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Manutenção Tech & Hardware",
             icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>`,
             content: `
-                <div class="sticky top-0 z-30 bg-white -mx-6 md:-mx-8 px-6 md:px-8 pt-6 md:pt-8 pb-3 flex flex-nowrap overflow-x-auto w-full md:flex-wrap gap-2 border-b border-gray-200 custom-scrollbar">
-                    <button class="tab-btn active flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-brand-blue bg-blue-50 rounded-t-xl border-b-2 border-brand-blue transition-all" data-target="tab-manut-basic">Plano Basic</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-manut-profissional">Plano Profissional</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-manut-premium">Plano Premium</button>
-                    <button class="tab-btn flex-shrink-0 whitespace-nowrap px-4 py-2.5 text-sm font-bold text-gray-500 hover:text-brand-blue hover:bg-gray-50 rounded-t-xl border-b-2 border-transparent transition-all" data-target="tab-manut-domicilio">Suporte Domicílio</button>
+                <!-- NAVEGAÇÃO DAS ABAS (Padronizada) -->
+                <div class="flex flex-wrap border-b border-gray-200/50 mb-6 gap-2">
+                    <button class="tab-btn active px-4 py-2.5 text-sm font-bold text-brand-blue bg-blue-50 rounded-t-xl border-b-2 border-brand-blue transition-all" data-target="tab-manut-domicilio">Suporte Domicílio</button>
                 </div>
-                <div id="tab-manut-basic" class="tab-content block animate-[fadeIn_0.3s_ease-in-out]">
-                    <h4 class="text-xl font-bold text-gray-900 mb-1">Plano Basic</h4>
-                    <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: 39 €/mês</p>
-                    <div class="space-y-4 text-sm md:text-base">
-                        <p><strong class="text-gray-900">Definição:</strong> Acompanhamento essencial para websites com poucas alterações.</p>
-                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Verificações técnicas e pequenas atualizações acordadas.</li></ul></div>
-                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Verificações periódicas;</li><li>Pequenas atualizações;</li><li>Apoio técnico básico dentro do limite contratado.</li></ul></div>
-                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Acessos e informação necessários para manter o website.</p></div>
-                        <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Não inclui desenvolvimento ilimitado, novas funcionalidades ou custos de terceiros.</p>
-                    </div>
-                </div>
-                <div id="tab-manut-profissional" class="tab-content hidden animate-[fadeIn_0.3s_ease-in-out]">
-                    <h4 class="text-xl font-bold text-gray-900 mb-1">Plano Professional</h4>
-                    <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: 69 €/mês</p>
-                    <div class="space-y-4 text-sm md:text-base">
-                        <p><strong class="text-gray-900">Definição:</strong> Acompanhamento regular para negócios que necessitam de apoio mais frequente.</p>
-                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Inclui acompanhamento essencial;</li><li>Maior margem para pequenas alterações de conteúdo.</li></ul></div>
-                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Verificações;</li><li>Pequenas alterações;</li><li>Apoio técnico conforme limites do contrato.</li></ul></div>
-                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Acessos e pedidos organizados por um responsável.</p></div>
-                        <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Não inclui reformulação integral, módulos novos ou serviços externos pagos.</p>
-                    </div>
-                </div>
-                <div id="tab-manut-premium" class="tab-content hidden animate-[fadeIn_0.3s_ease-in-out]">
-                    <h4 class="text-xl font-bold text-gray-900 mb-1">Plano Premium</h4>
-                    <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: 119 €/mês</p>
-                    <div class="space-y-4 text-sm md:text-base">
-                        <p><strong class="text-gray-900">Definição:</strong> Acompanhamento prioritário e maior volume de pequenas intervenções acordadas.</p>
-                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Inclui tarefas definidas dos níveis anteriores;</li><li>Prioridade de atendimento.</li></ul></div>
-                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Acompanhamento prioritário;</li><li>Pequenas intervenções dentro do volume contratado;</li><li>Apoio técnico.</li></ul></div>
-                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Acessos, pedidos e responsável para validar alterações.</p></div>
-                        <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Não significa disponibilidade ilimitada nem desenvolvimento sem custos adicionais.</p>
-                    </div>
-                </div>
-                <div id="tab-manut-domicilio" class="tab-content hidden animate-[fadeIn_0.3s_ease-in-out]">
+                
+                <!-- CONTEÚDO DA ABA -->
+                <div id="tab-manut-domicilio" class="tab-content block animate-[fadeIn_0.3s_ease-in-out]">
                     <h4 class="text-xl font-bold text-gray-900 mb-1">Manutenção PC a Domicílio</h4>
                     <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: Desde 40 €</p>
                     <div class="space-y-4 text-sm md:text-base">
@@ -598,7 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             `
-        }
+        },
     };
 
     serviceCards.forEach(card => {
