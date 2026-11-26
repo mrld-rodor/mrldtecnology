@@ -688,6 +688,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { name: "Flask", project: "Varios", desc: "Arquitetura de backend em Python. Meu framework favorito para desenvolvimento web. Utilizei para desenvolver a landing Page do <a href='https://www.spacegirassol.online' target='_blank'><span class='text-blue-500 hover:underline'>SpaceGirassol</span></a> e também do <a href='https://www.dreamwalkertales.online' target='_blank'><span class='text-blue-500 hover:underline'>Dreamwalker Tales</span></a>." },
             { name: "KivyMD", project: "Apps Mobile/Desktop", desc: "Arquitetura de backend em Python. Minha ferramenta preferida para desenvolvimento mobile." },
             { name: "Python", project: "Varios", desc: "É uma linguagem de programação versátil e poderosa. É a linguagem que mais uso, praticamente todos os meus projetos são desenvolvidos em Python." },
+            { name: "Vercel", project: "Varios", desc: "Plataforma de implantação e hospedagem para aplicações web e bancos de dados. A <a href='https://www.vercel.com' target='_blank'><span class='text-blue-500 hover:underline'>Vercel</span></a> É a ferramenta que mais uso para deploy de projetos." },
         ];
 
         // --- SETUP THREE.JS ---
