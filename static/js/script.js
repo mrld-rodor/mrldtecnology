@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p><strong class="text-gray-900">Definição:</strong> Website institucional para apresentar o negócio, os serviços e os principais meios de contacto.</p>
                         <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Estrutura simples de páginas informativas;</li><li>Apresentação da empresa, serviços e contactos.</li></ul></div>
                         <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Páginas essenciais e navegação;</li><li>Layout responsivo;</li><li>Títulos e descrições básicas.</li></ul></div>
-                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Logótipo, textos, imagens, contactos, morada e horários quando aplicável.</p></div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Logótipo, textos, imagens, contactos, morada e horários, quando aplicável.</p></div>
                         <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Não inclui loja online, área reservada, sistema complexo de marcações ou manutenção mensal.</p>
                     </div>
                 </div>
@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: 1.450 €</p>
                     <div class="space-y-4 text-sm md:text-base">
                         <p><strong class="text-gray-900">Definição:</strong> Presença digital abrangente para empresas que necessitam de mais conteúdos e funcionalidades específicas.</p>
-                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Arquitetura mais ampla e componentes personalizados;</li><li>Integrações com ferramentas externas quando acordadas.</li></ul></div>
+                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Arquitetura mais ampla e componentes personalizados;</li><li>Integrações com ferramentas externas, quando acordadas.</li></ul></div>
                         <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Estrutura de páginas;</li><li>Funcionalidades e integrações aprovadas;</li><li>Testes e publicação.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Requisitos do negócio, conteúdos, acessos externos e responsável pelas aprovações.</p></div>
                         <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Sistemas complexos, licenças externas e funcionalidades fora do âmbito são orçamentados à parte.</p>
@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: 350 €</p>
                     <div class="space-y-4 text-sm md:text-base">
                         <p><strong class="text-gray-900">Definição:</strong> Página única focada num produto, serviço ou campanha, orientada para uma ação concreta: contactar, pedir orçamento ou reservar.</p>
-                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Apresentação da oferta, benefícios principais, chamadas para ação;</li><li>Contactos e formulário simples se acordado.</li></ul></div>
+                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Apresentação da oferta, benefícios principais, chamadas para ação;</li><li>Contactos e formulário simples, se acordado.</li></ul></div>
                         <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Uma página responsiva e secções essenciais;</li><li>Botões ou ligações de contacto;</li><li>Configuração técnica básica para publicação.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Logótipo, textos, imagens, contactos e ação que pretende que o visitante realize.</p></div>
                         <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Não inclui várias páginas, redação extensa, fotografia/vídeo, anúncios ou funcionalidades complexas.</p>
@@ -421,7 +421,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: Desde 1.500 €</p>
                     <div class="space-y-4 text-sm md:text-base">
                         <p><strong class="text-gray-900">Definição:</strong> Software usado através do navegador para gerir processos, centralizar informação ou automatizar tarefas.</p>
-                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Interface, backend/API e base de dados;</li><li>Autenticação, regras de negócio e integrações conforme análise.</li></ul></div>
+                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Interface, backend/API e base de dados;</li><li>Autenticação, regras de negócio e integrações, conforme análise.</li></ul></div>
                         <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Análise funcional, interface e lógica de negócio;</li><li>Dados, testes, entrega e instruções básicas.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Processos atuais, regras, tipos de utilizador, dados e prioridades.</p></div>
                         <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Aplicações móveis nativas, infraestrutura paga, licenças e módulos não aprovados não estão incluídos.</p>
@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: 100 €</p>
                     <div class="space-y-4 text-sm md:text-base">
                         <p><strong class="text-gray-900">Definição:</strong> Análise e melhoria do desempenho para tornar o carregamento das páginas mais eficiente.</p>
-                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Análise de imagens, ficheiros CSS/JS, fontes, cache e recursos;</li><li>Aplicação quando tecnicamente possível.</li></ul></div>
+                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Análise de imagens, ficheiros CSS/JS, fontes, cache e recursos;</li><li>Aplicação, quando tecnicamente possível.</li></ul></div>
                         <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Verificação inicial;</li><li>Otimizações possíveis;</li><li>Verificação depois das alterações.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Acesso técnico ao website e alojamento, quando necessário.</p></div>
                         <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Não inclui mudança de alojamento, CDN paga ou reconstrução integral.</p>
@@ -486,7 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Ligação/criação da propriedade;</li><li>Instalação da medição e verificação básica de eventos acordados.</li></ul></div>
                         <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Propriedade ligada;</li><li>Etiqueta instalada;</li><li>Recolha de dados verificada.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Conta Google, acesso ao website e eventos que pretende medir.</p></div>
-                        <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Relatórios periódicos e análise avançada não incluídos; consentimento de cookies deve ser tratado quando aplicável.</p>
+                        <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Relatórios periódicos e análise avançada não incluídos; consentimento de cookies deve ser tratado, quando aplicável.</p>
                     </div>
                 </div>
                 <div id="tab-seo-search" class="tab-content hidden animate-[fadeIn_0.3s_ease-in-out]">
@@ -494,8 +494,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: 45 €</p>
                     <div class="space-y-4 text-sm md:text-base">
                         <p><strong class="text-gray-900">Definição:</strong> Ferramenta que permite acompanhar a presença do website na Pesquisa Google e detetar questões de indexação.</p>
-                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Configuração da propriedade;</li><li>Verificação de titularidade e submissão do sitemap se disponível.</li></ul></div>
-                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Propriedade configurada;</li><li>Titularidade verificada;</li><li>Sitemap submetido quando aplicável.</li></ul></div>
+                        <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Configuração da propriedade;</li><li>Verificação de titularidade e submissão do sitemap, se disponível.</li></ul></div>
+                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Propriedade configurada;</li><li>Titularidade verificada;</li><li>Sitemap, submetido quando aplicável.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Conta Google e acesso ao domínio ou alojamento para validação.</p></div>
                         <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> Não garante indexação imediata nem posicionamento.</p>
                     </div>
@@ -515,7 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h4 class="text-xl font-bold text-gray-900 mb-1">Google Ads</h4>
                     <p class="text-brand-blue font-bold text-lg mb-4">Preço de referência: Sob orçamento</p>
                     <div class="space-y-4 text-sm md:text-base">
-                        <p><strong class="text-gray-900">Definição:</strong> Publicidade paga na rede Google, incluindo anúncios que podem surgir quando as pessoas pesquisam por produtos ou serviços.</p>
+                        <p><strong class="text-gray-900">Definição:</strong> Publicidade paga na rede Google, que permite divulgar produtose serviços por meio de anúncios exibidos nos resultados de pesquisas e em outros canais de rede Google, alcançando pessoas que demosntram interesse no que sua empresa oferece.</p>
                         <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Definição de objetivos, campanhas, grupos, palavras-chave;</li><li>Segmentação geográfica, anúncios e medição de conversões, conforme contrato.</li></ul></div>
                         <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Configuração inicial ou gestão periódica;</li><li>Estrutura de campanhas e anúncios aprovados;</li><li>Acompanhamento acordado.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Conta Google Ads, oferta, página de destino, localização, público, materiais e orçamento de anúncios.</p></div>
@@ -528,7 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="space-y-4 text-sm md:text-base">
                         <p><strong class="text-gray-900">Definição:</strong> Publicidade paga em Facebook e Instagram, gerida através das ferramentas de anúncios da Meta.</p>
                         <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Definição de objetivo, público, localização, posicionamentos, orçamento;</li><li>Anúncios com materiais fornecidos ou aprovados.</li></ul></div>
-                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Configuração inicial ou gestão recorrente;</li><li>Campanhas e conjuntos de anúncios;</li><li>Medição básica se prevista.</li></ul></div>
+                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Configuração inicial ou gestão recorrente;</li><li>Campanhas e conjuntos de anúncios;</li><li>Medição básica, se prevista.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Conta empresarial/gestor de anúncios, página, perfil, criativos, público e orçamento.</p></div>
                         <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> O investimento é pago diretamente à Meta. Produção contínua de conteúdos, resposta a mensagens e resultados não garantidos.</p>
                     </div>
