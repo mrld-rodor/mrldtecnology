@@ -528,7 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="space-y-4 text-sm md:text-base">
                         <p><strong class="text-gray-900">Definição:</strong> Publicidade paga em Facebook e Instagram, gerida através das ferramentas de anúncios da Meta.</p>
                         <div><strong class="text-gray-900 block mb-1">O que pode incluir:</strong><ul class="list-disc pl-5 space-y-1"><li>Definição de objetivo, público, localização, posicionamentos, orçamento;</li><li>Anúncios com materiais fornecidos ou aprovados.</li></ul></div>
-                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Configuração inicial ou gestão recorrente;</li><li>Campanhas e conjuntos de anúncios;</li><li>Medição básica, se prevista.</li></ul></div>
+                        <div><strong class="text-gray-900 block mb-1">Entregáveis habituais:</strong><ul class="list-disc pl-5 space-y-1"><li>Configuração inicial ou gestão recorrente;</li><li>Campanhas e conjuntos de anúncios;</li><li>Medição básica,  se prevista.</li></ul></div>
                         <div class="bg-gray-50 p-3 rounded-lg border border-gray-100"><strong class="text-gray-900 block mb-1">O que precisamos do cliente:</strong><p class="text-gray-600">Conta empresarial/gestor de anúncios, página, perfil, criativos, público e orçamento.</p></div>
                         <p class="text-red-500/80 text-xs mt-2"><strong>Limites habituais:</strong> O investimento é pago diretamente à Meta. Produção contínua de conteúdos, resposta a mensagens e resultados não garantidos.</p>
                     </div>
